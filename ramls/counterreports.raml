@@ -1,0 +1,34 @@
+#%RAML 1.0
+
+title: RmbTest API
+baseUri: https://bla
+version: v1.0
+
+documentation:
+  - title: rmbtest API
+    content: RAML
+
+/counter-reports:
+  /csv:
+    /{id}:
+      get:
+        description: DEPRECATED Get the report identified by id as CSV
+        responses:
+          200:
+            body:
+              text/csv:
+          500:
+            description: Server Error
+            body:
+              text/plain:
+    /provider/{id}/report/{name}/version/{version}/from/{begin}/to/{end}:
+      get:
+        description: DEPRECATED Get report for several months as CSV for a provider id
+        responses:
+          200:
+            body:
+              text/csv:
+          500:
+            description: Server Error
+            body:
+              text/plain:
